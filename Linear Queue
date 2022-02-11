@@ -1,0 +1,53 @@
+// Queue 
+#include<stdio.h>
+#include<stdlib.h>
+#define max 6
+int rear=0;
+int front=0;
+int queue[max];
+void enqueue(int n)
+{
+    if(rear==max)
+    {
+        printf(" Length of queue is achieved");
+    }
+    else
+    {
+        queue[rear]=n;
+        rear=rear+1;
+    }
+}
+int dequeue()
+{
+    int item;
+    if(front==rear)
+    {
+        printf("Queue is empty");
+    }
+    else
+    {
+        item=queue[front];
+        front=front+1;
+        return item;
+    }
+}
+void show()
+{
+        
+    while(front!=rear)
+    {
+        printf("%d",queue[front]);
+        front=front+1;
+    }
+    printf("\n queue is empty");
+}
+void main()
+{
+    char queue[max];
+    enqueue(10);
+    //enqueue(20);
+    enqueue(30);
+    dequeue();
+    dequeue();
+    show();
+}
