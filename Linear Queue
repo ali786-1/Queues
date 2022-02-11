@@ -43,11 +43,28 @@ void show()
 }
 void main()
 {
-    char queue[max];
-    enqueue(10);
-    //enqueue(20);
-    enqueue(30);
-    dequeue();
-    dequeue();
-    show();
+     int i,ch,k;
+    do
+    {
+        printf("enter 1.enqueue\n 2.dequeue\n 3.show\n 4.exit\n");
+        scanf("%d",&ch);
+        switch(ch)
+        {
+            case 1:
+                printf("enter element");
+                scanf("%d",&i);
+                enqueue(i);
+                break;
+            case 2:
+                printf("%d\tis the element dequeued \n",dequeue());
+                break;
+            case 3:
+                show();
+                break;
+            default:
+                printf("exit");
+        }
+        printf("\nenter 1 to continue 0 to exit");
+        scanf("%d",&k);
+        }while(k==1);
 }
