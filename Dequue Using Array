@@ -1,0 +1,132 @@
+#include<stdio.h>
+#include<stdlib.h>
+#define max 6
+int count=0,front=0,rear=0;
+int qu[max];
+void enqueuerear()
+{
+    int item;
+    if(count==max)
+    {
+        printf("Dqueue is Full");
+    }
+    else
+    {
+        if(rear==max)
+        {
+            rear=0;
+        }
+        printf("Enter the element to enqueue");
+        scanf("%d",&item);
+        qu[rear]=item;
+        rear=rear+1;
+        count=count+1;
+    }
+    
+}
+void dequeuefront()
+{
+    if(count==0)
+    {
+        printf("Dqueue is empty");
+    }
+    else
+    {
+        if(front==max)
+        {
+            front=0;
+        }
+        printf("Dequeued element is %d",qu[front]);
+        front=front+1;
+        count-=1;
+    }
+}
+void enqueuefront()
+{
+    int item;
+    if(count==max)
+    {
+        printf("Dqueue is full");
+    }
+    else
+    {
+        if(front==0)
+        {
+            front=max;
+        }
+        front-=1;
+        printf("Enter element to enqueue by front");
+        scanf("%d",&item);
+        qu[front]=item;
+        count+=1;
+    }
+}
+void dequeuerear()
+{
+    if(count==0)
+    {
+        printf("Dequeue is empty");
+    }
+    else
+    {
+        if(rear==0)
+        {
+            rear=max;
+        }
+        printf("Dequeued element By Rear is %d\t",qu[rear]);
+        rear=rear-1;
+        count-=1;
+        
+    }
+}
+void display()
+{
+    int i;
+    if(count==0)
+    {
+        printf("Empty Dqueue");
+    }
+    else if(front<rear)
+    {
+       for(i=front;i<rear;i++)
+       {
+           printf("%d\t",qu[i]);
+       }
+    }
+    else
+    {
+        for(i=front;i<max;i++)
+        {
+            printf("%d\t",qu[i]);
+        }
+        for(i=0;i<rear;i++)
+        {
+            printf("%d\t",qu[i]);
+        }
+    }
+}
+void main()
+{
+    int qu[max],ch;
+    while(ch!=6)
+    {
+    printf("Enter your Choice \n 1.Enqueuefront\n 2.Enqueuerear\n 3.Dequeuefront\n 4.Dequeuerear\n 5.display\n 6.exit\n");
+    scanf("%d",&ch);
+    switch(ch)
+    {
+        case 1: enqueuefront();
+                break;
+        case 2: enqueuerear();
+                break;
+        case 3: dequeuefront();
+                break;
+        case 4: dequeuerear();
+                break;
+        case 5: display();
+                break;
+        case 6: printf("Exiting");
+                break;
+        default:    printf("Enter the valid number");
+    }
+    }
+}
